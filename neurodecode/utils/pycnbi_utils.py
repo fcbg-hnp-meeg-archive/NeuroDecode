@@ -22,6 +22,7 @@ import importlib
 import numpy as np
 import multiprocessing as mp
 import xml.etree.ElementTree as ET
+from pathlib import Path
 import neurodecode.utils.q_common as qc
 from scipy.signal import butter, lfilter, lfiltic, buttord
 from neurodecode.pycnbi_config import CAP, LAPLACIAN
@@ -665,9 +666,23 @@ def raw_crop(raw, tmin, tmax):
     return mne.io.RawArray(raw._data[:, tmin_index:tmax_index], info)
 
 
+#def load_config(cfg_module):
+#    if '/' in cfg_module:
+#        cfg_module = cfg_module.replace('/', '.').replace('.py', '')
+#        logger.warning('Replacing deprecated config path to new style: %s' % cfg_module)
+#        logger.warning('Please change your argument.')
+#    return importlib.import_module(cfg_module)
+
 def load_config(cfg_module):
-    if '/' in cfg_module:
-        cfg_module = cfg_module.replace('/', '.').replace('.py', '')
-        logger.warning('Replacing deprecated config path to new style: %s' % cfg_module)
-        logger.warning('Please change your argument.')
-    return importlib.import_module(cfg_module)
+    """
+    Dynamic loading of a config file module.
+
+    cfg_module = absolute path to the config file to load
+    """
+    cfg_module = Path(cfg_module)
+    cfg_path, cfg_name = os.path.split(cfg_module)
+    print(cfg_path)
+    print(cfg_name)
+    sys.path.append(cfg_path)
+
+    return importlib.import_module(cfg_name.split('.')[0])
