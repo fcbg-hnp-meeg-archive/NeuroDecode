@@ -64,10 +64,24 @@ Clone the repository:
 git clone https://github.com/fcbg-hnp/NeuroDecode.git
 ```
 
+## Pip version / system version
+
 Run setup script:
 ```
 python setup.py develop
 ```
+
+## Conda version
+
+Run
+
+```
+conda env create --file environment.yml
+```
+
+# Running
+
+## Windows
 
 **IMPORTANT:** Create environment variables:
 > NEUROD_ROOT = NeuroDecode path 
@@ -85,6 +99,11 @@ Add *%NEUROD_ROOT%/scripts* directory to PATH environment variable for convenien
 nd_gui.cmd
 ```
 
+## Linux
+
+Checkout out `cli.sh` and `env.sh`. All environment variables (and some simple helper variables) and
+the conda environment will be loaded if you execute `. ./env.sh`. This has to be run before using
+the CLI.
 
 ## For Windows users, increase timer resolution
 The default timer resolution in some Windows versions is 16 ms, which can limit the precision of timings. It is recommended to run the following tool and set the resolution to 1 ms or lower:
