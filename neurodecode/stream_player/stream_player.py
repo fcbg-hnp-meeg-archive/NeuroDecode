@@ -12,6 +12,7 @@ Kyuhwa Lee, 2015
 
 """
 
+import sys
 import time
 import pylsl
 import numpy as np
@@ -133,5 +134,12 @@ def stream_player(server_name, fif_file, chunk_size, auto_restart=True, wait_sta
 if __name__ == '__main__':
     server_name = 'StreamPlayer'
     chunk_size = 8  # chunk streaming frequency in Hz
-    fif_file = r'D:\data\CHUV\ECoG17\20171008\fif_corrected\ANKTOE_left_vs_right\Oct08-08.fif'
+
+    if len(sys.argv) != 2:
+        print("please provide a full path to a fif file to stream")
+        sys.exit(1)
+    else:
+        fif_file = sys.argv[1]
+
+    #fif_file = r'D:\data\CHUV\ECoG17\20171008\fif_corrected\ANKTOE_left_vs_right\Oct08-08.fif'
     stream_player(server_name, fif_file, chunk_size)
