@@ -142,4 +142,4 @@ if __name__ == '__main__':
         fif_file = sys.argv[1]
 
     #fif_file = r'D:\data\CHUV\ECoG17\20171008\fif_corrected\ANKTOE_left_vs_right\Oct08-08.fif'
-    stream_player(server_name, fif_file, chunk_size)
+    stream_player(server_name, fif_file, chunk_size, wait_start=False)

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 if [ -z ${NEUROD_ROOT+x} ]; then
+  # there we set the SAMPLE_RECORDING path as well
   echo "NEUROD_ROOT is not set, run '. ./env.sh' first"
   exit 1
 fi

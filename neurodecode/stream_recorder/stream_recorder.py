@@ -46,9 +46,9 @@ from builtins import input
 
 
 def record(recordState, amp_name, amp_serial, record_dir, eeg_only, recordLogger=logger, queue=None):
-    
+
     redirect_stdout_to_queue(recordLogger, queue, 'INFO')
-    
+
     # set data file name
     timestamp = time.strftime('%Y%m%d-%H%M%S', time.localtime())
     pcl_file = "%s/%s-raw.pcl" % (record_dir, timestamp)
@@ -74,7 +74,7 @@ def record(recordState, amp_name, amp_serial, record_dir, eeg_only, recordLogger
 
     with recordState.get_lock():
         recordState.value = 1
-        
+
     tm = qc.Timer(autoreset=True)
     next_sec = 1
     while recordState.value == 1:
@@ -133,15 +133,15 @@ def run(record_dir, amp_name, amp_serial, recordLogger=logger, eeg_only=False, q
 def batch_run(record_dir=None, amp_name=None, amp_serial=None):
     # configure LSL server name and device serial if available
     if not record_dir:
-        record_dir = '%s/records' % os.getcwd()    
+        record_dir = '%s/records' % os.getcwd()
     if not amp_name:
         amp_name, amp_serial = pu.search_lsl(ignore_markers=True)
     run(record_dir, amp_name=amp_name, amp_serial=amp_serial)
 
 def run_gui(recordState, protocolState, record_dir, recordLogger=logger, amp_name=None, amp_serial=None, eeg_only=False, queue=None):
-    
+
     redirect_stdout_to_queue(recordLogger, queue, 'INFO')
-    
+
     # configure LSL server name and device serial if available
     if not amp_name:
         amp_name, amp_serial = pu.search_lsl(recordState, recordLogger, ignore_markers=True)
@@ -152,10 +152,10 @@ def run_gui(recordState, protocolState, record_dir, recordLogger=logger, amp_nam
     recordLogger.info('\n>> Recording started.')
     proc = mp.Process(target=record, args=[recordState, amp_name, amp_serial, record_dir, eeg_only, recordLogger , queue])
     proc.start()
-    
+
     while not recordState.value:
         pass
-    
+
     # Launching the protocol (shared variable)
     with protocolState.get_lock():
         protocolState.value = 1

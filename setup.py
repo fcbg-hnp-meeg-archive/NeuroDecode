@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='NeuroDecode',
-    version='0.9dev',
+    version='0.9.1dev',
     author='Kyuhwa Lee, Arnaud Desvachez',
     author_email='lee.kyuh@gmail.com, arnaud.desvachez@gmail.com',
     license='The GNU General Public License',
@@ -31,6 +31,7 @@ setup(
         'simplejson>=3.16.0',
         'scikit_learn>=0.21',
         'future',
-        'configparser'
+        'configparser',
+        'pygame==2.0.0.dev6'
     ]
 )
