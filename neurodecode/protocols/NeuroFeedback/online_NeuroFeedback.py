@@ -15,10 +15,13 @@ import multiprocessing as mp
 import pygame.mixer as pgmixer
 
 import neurodecode.utils.pycnbi_utils as pu
+import neurodecode.triggers.pyLptControl as pyLptControl
 
 from neurodecode import logger
+from neurodecode.protocols.viz_bars import BarVisual
 from neurodecode.utils import q_common as qc
 from neurodecode.gui.streams import redirect_stdout_to_queue
+from neurodecode.triggers.trigger_def import trigger_def
 from neurodecode.stream_receiver.stream_receiver import StreamReceiver
 
 os.environ['OMP_NUM_THREADS'] = '1' # actually improves performance for multitaper
@@ -48,12 +51,12 @@ def check_config(cfg):
     Ensure that the config file contains the parameters
     """
     critical_vars = {
-        'COMMON': ['ALPHA_CHANNELS',
+        'COMMON': ['TRIGGER_DEVICE',
+                   'TRIGGER_FILE',
+                   'START_VOICE_FILE',
+                   'END_VOICE_FILE',
+                   'ALPHA_CHANNELS',
                    'THETA_CHANNELS',
-                   'ALPHA_THR',
-                   'THETA_THR',
-                   'ALPHA_REF',
-                   'THETA_REF',
                    'MUSIC_STATE_1_PATH',
                    'MUSIC_STATE_2_PATH',
                    'FEATURE_TYPE',
@@ -71,6 +74,7 @@ def check_config(cfg):
         'SPATIAL_CHANNELS': None,
         'GLOBAL_TIME': 30.0 * 60,
         'NJOBS': 1,
+        'SCREEN_POS': (0, 0)
     }
 
     for key in critical_vars['COMMON']:
@@ -161,7 +165,7 @@ def init_feedback_sounds(path1, path2):
     return m1, m2
 
 #----------------------------------------------------------------------
-def compute_psd(window, psde, psd_ref):
+def compute_psd(window, psde):
     """
     Compute the relative PSD
 
@@ -171,17 +175,19 @@ def compute_psd(window, psde, psd_ref):
     psd = psde.transform(window.reshape((1, window.shape[0], -1)))
     psd = psd.reshape((psd.shape[1], psd.shape[2]))                 # channels x frequencies
     psd =  np.sum(psd, axis=1)                                      #  Over frequencies
-    m_psd = np.mean(psd)                                            #  Over channels
+    return np.mean(psd)                                            #  Over channels
 
-    r_m_psd = m_psd / psd_ref
 
-    return r_m_psd
+keys = {'left':81, 'right':83, 'up':82, 'down':84, 'pgup':85, 'pgdn':86,
+    'home':80, 'end':87, 'space':32, 'esc':27, ',':44, '.':46, 's':115, 'c':99,
+    '[':91, ']':93, '1':49, '!':33, '2':50, '@':64, '3':51, '#':35}
 
 #----------------------------------------------------------------------
 def run(cfg, state=mp.Value('i', 1), queue=None):
     """
     Online protocol for Alpha/Theta neurofeedback.
     """
+
     redirect_stdout_to_queue(logger, queue, 'INFO')
 
     # Wait the recording to start (GUI)
@@ -191,6 +197,13 @@ def run(cfg, state=mp.Value('i', 1), queue=None):
     # Protocol runs if state equals to 1
     if not state.value:
         sys.exit(-1)
+
+
+    cfg.tdef = trigger_def(cfg.TRIGGER_FILE)
+    trigger = pyLptControl.Trigger(state, cfg.TRIGGER_DEVICE)
+    if trigger.init(50) == False:
+        logger.error('\n** Error connecting to trigger device.')
+        raise RuntimeError
 
     #----------------------------------------------------------------------
     # LSL stream connection
@@ -221,19 +234,41 @@ def run(cfg, state=mp.Value('i', 1), queue=None):
     #----------------------------------------------------------------------
     # Main
     #----------------------------------------------------------------------
-    global_timer = qc.Timer(autoreset=False)
-    internal_timer = qc.Timer(autoreset=True)
-
-    state = 'RATIO_FEEDBACK'
-
-    sound_1.play(loops=-1)
-    sound_2.play(loops=-1)
 
     current_max = 0
 
     last_ratio = None
-    measured_psd_ratios = np.full(cfg['window_size_psd_max'], np.nan)
+    measured_psd_ratios = np.full(cfg.WINDOW_SIZE_PSD_MAX, np.nan)
 
+    last_ts = None
+
+    pgmixer.music.load(cfg.START_VOICE_FILE)
+
+    # Init feedback
+    viz = BarVisual(False, screen_pos=cfg.SCREEN_POS, screen_size=cfg.SCREEN_SIZE)
+    viz.fill()
+    viz.put_text('Close your eyes and relax')
+    viz.update()
+
+    # PLay the start voice
+    pgmixer.music.play()
+
+    # Wait a key press
+    key = 0xFF & cv2.waitKey(0)
+    if key == keys['esc'] or not state.value:
+        sys.exit(-1)
+
+    viz.fill()
+    viz.put_text('Recording in progress')
+    viz.update()
+
+    trigger.signal(cfg.tdef.INIT)
+
+    global_timer = qc.Timer(autoreset=False)
+    internal_timer = qc.Timer(autoreset=True)
+
+    sound_1.play(loops=-1)
+    sound_2.play(loops=-1)
     while state.value == 1 and global_timer.sec() < cfg.GLOBAL_TIME:
 
         #----------------------------------------------------------------------
@@ -245,11 +280,12 @@ def run(cfg, state=mp.Value('i', 1), queue=None):
         window = window.T                   # window = [channels x samples]
 
         # Check if proper real-time acquisition
-        tsnew = np.where(np.array(tslist) > last_ts)[0]
-        if len(tsnew) == 0:
-            logger.warning('There seems to be delay in receiving data.')
-            time.sleep(1)
-            continue
+        if last_ts:
+            tsnew = np.where(np.array(tslist) > last_ts)[0]
+            if len(tsnew) == 0:
+                logger.warning('There seems to be delay in receiving data.')
+                time.sleep(1)
+                continue
 
         # Spatial filtering
         window = pu.preprocess(window, sfreq=sfreq, spatial=cfg.SPATIAL_FILTER, spatial_ch=cfg.SPATIAL_CHANNELS)
@@ -260,10 +296,10 @@ def run(cfg, state=mp.Value('i', 1), queue=None):
         # PSD
 
         if cfg.FEATURE_TYPE == 'THETA':
-            feature = compute_psd(window, psde_theta, cfg.THETA_REF)
+            feature = compute_psd(window, psde_theta)
         elif cfg.FEATURE_TYPE == 'ALPHA_THETA':
-            psd_alpha = compute_psd(window, psde_alpha, cfg.ALPHA_REF)
-            psd_theta = compute_psd(window, psde_theta, cfg.THETA_REF)
+            psd_alpha = compute_psd(window, psde_alpha)
+            psd_theta = compute_psd(window, psde_theta)
 
             feature = psd_alpha / psd_theta
 
@@ -286,6 +322,21 @@ def run(cfg, state=mp.Value('i', 1), queue=None):
         last_ts = tslist[-1]
         internal_timer.sleep_atleast(cfg.TIMER_SLEEP)
 
+    trigger.signal(cfg.tdef.END)
+
+    # Remove the text
+    viz.fill()
+    viz.put_text('Recording is finished')
+    viz.update()
+
+    # Ending voice
+    pgmixer.music.load(cfg.END_VOICE_FILE)
+    pgmixer.music.play()
+    time.sleep(5)
+
+    # Close cv2 window
+    viz.finish()
+
 #----------------------------------------------------------------------
 def batch_run(cfg_module):
     """
@@ -297,8 +348,10 @@ def batch_run(cfg_module):
 
 #----------------------------------------------------------------------
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        cfg_module = input('Config module name? ')
-    else:
-        cfg_module = sys.argv[1]
+
+    cfg_module = '/home/sam/proj/epfl/eeg-meditation-project/neurodecode_scripts/NeuroFeedback/sam-NeuroFeedback/config_online_sam-NeuroFeedback.py'
+    #if len(sys.argv) < 2:
+    #    cfg_module = input('Config module name? ')
+    #else:
+    #    cfg_module = sys.argv[1]
     batch_run(cfg_module)

@@ -6,15 +6,14 @@ class Basic:
     params0 = dict()
     params0.update({'DATA_PATH': str})
 
-    # PSD ratio: above
     params1 = dict()
-    params1.update({'UP_CHANNELS': list})
-    params1.update({'UP_FREQ': dict(min=float, max=float)})
+    params1.update({'TRIGGER_FILE': str})
+    params1.update({'GLOBAL_TIME': int})
 
-    # PSD ratio: below
+    # TODO add protocol selection
     params2 = dict()
-    params2.update({'DOWN_CHANNELS': list})
-    params2.update({'DOWN_FREQ': dict(min=float, max=float)})
+    #params2.update({'DOWN_CHANNELS': list})
+    #params2.update({'DOWN_FREQ': dict(min=float, max=float)})
 
 
 ########################################################################
@@ -27,9 +26,10 @@ class Advanced:
     params0.update({'WINDOWSIZE': float})       # Windows length in sec for PSD computation
 
     params1 = dict()
-    params1.update({'UP_FEEDBACK_PATH':str})
-    params1.update({'DOWN_FEEDBACK_PATH':str})
-    params1.update({'SOUND_INC':float})
+    params1.update({'GLOBAL_TIME': int})
+    #params1.update({'UP_FEEDBACK_PATH':str})
+    #params1.update({'DOWN_FEEDBACK_PATH':str})
+    #params1.update({'SOUND_INC':float})
 
     params2 = dict()
     params2.update({'NJOBS': int})              # For multicore PSD compoutation

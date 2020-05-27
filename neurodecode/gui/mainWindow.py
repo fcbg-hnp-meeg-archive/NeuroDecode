@@ -462,11 +462,15 @@ class MainWindow(QMainWindow):
         """
         # Find the config template
         tmp = cfg_file.split('.')[0]  # Remove the .py
+
         self.protocol = tmp.split('-')[-1]    # Extract the protocol name
+        # TODO fix this
+        logger.info(f"protocol is: {self.protocol}, tmp: {tmp}")
         template_path = Path(os.environ['NEUROD_ROOT']) / 'neurodecode' / 'config_files' / self.protocol / 'structure_files'
 
         for f in glob(os.fspath(template_path / "*.py") , recursive=False):
             fileName =  os.path.split(f)[-1]
+            logger.info(f"current file name {fileName}")
             if modality in fileName and 'structure' in fileName:
                 return f
 

@@ -1,9 +1,9 @@
 SCRIPTPATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
 export NEUROD_ROOT="$SCRIPTPATH/../NeuroDecode"
-export NEUROD_DATA="$SCRIPTPATH/../AlphaTheta_data"
+export NEUROD_DATA="$SCRIPTPATH/../data"
 export NEUROD_SCRIPTS="$SCRIPTPATH/../neurodecode_scripts"
 
-export SAMPLE_RECORDING="$NEUROD_DATA/sam-AlphaTheta/offline/fif/20200304-144601-raw.fif"
+export SAMPLE_RECORDING="$NEUROD_DATA/AlphaTheta/sam-AlphaTheta/offline/fif/20200304-144601-raw.fif"
 
 conda activate neurodecode

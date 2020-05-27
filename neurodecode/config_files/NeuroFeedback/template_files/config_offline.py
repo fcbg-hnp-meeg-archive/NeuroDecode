@@ -1,10 +1,12 @@
 DATA_PATH = ''
 
-TRIGGER_DEVICE = None
-TRIGGER_FILE = r'C:\Users\adesvachez\git\NeuroDecode\neurodecode\triggers\triggerdef_16.ini'
+TRIGGER_DEVICE= 'SOFTWARE'
+TRIGGER_FILE= '/home/sam/proj/epfl/eeg-meditation-project/NeuroDecode/triggers/triggerdef_16.ini'
 
-START_VOICE_FILE = r'C:\Users\adeli\neurodecode\meditation_sounds\startRecordingVoice.mp3'
-END_VOICE_FILE = r'C:\Users\adeli\neurodecode\meditation_sounds\EndRecordingVoice.mp3'
+_root_music_path_= '/home/sam/proj/epfl/eeg-meditation-project/nfme/meditation_sounds'
+
+START_VOICE_FILE= f"{_root_music_path_}/arnaud/startRecordingVoice.wav"
+END_VOICE_FILE= f"{_root_music_path_}/arnaud/EndRecordingVoice.wav"
 
 SCREEN_SIZE = (1920, 1200)
 SCREEN_POS = (0,0)
