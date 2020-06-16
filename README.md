@@ -35,7 +35,7 @@ OpenVibe supports a wide range of acquisition servers and all acquisition system
 
 Clone the repository:
 ```
-git clone https://github.com/fcbg-hnp/NeuroDecode.git
+git clone https://github.com/samuelsmal/NeuroDecode.git
 ```
 
 **Note**: This project requires Python 3.8.
@@ -54,6 +54,15 @@ Run
 ```
 conda env create --file environment.yml
 ```
+
+## Configurations
+
+Check the `env` file for all the global configurations that have to be set. Then check
+also the configuration parameters required in the protocol-configs.
+
+Notice that there are two different config files. The `structure_files` are for the GUI
+and can be ignored, depending on how you run the software. The `template_files` are for
+the protocols themselves and have to be adapted.
 
 # Running
 
