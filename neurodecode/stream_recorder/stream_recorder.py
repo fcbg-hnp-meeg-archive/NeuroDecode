@@ -139,7 +139,6 @@ def batch_run(record_dir=None, amp_name=None, amp_serial=None):
     run(record_dir, amp_name=amp_name, amp_serial=amp_serial)
 
 def run_gui(recordState, protocolState, record_dir, recordLogger=logger, amp_name=None, amp_serial=None, eeg_only=False, queue=None):
-
     redirect_stdout_to_queue(recordLogger, queue, 'INFO')
 
     # configure LSL server name and device serial if available

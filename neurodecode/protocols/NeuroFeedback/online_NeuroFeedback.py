@@ -1,11 +1,7 @@
 #!/usr/bin/env python3
 #coding:utf-8
-"""
-  Author:  Arnaud Desvachez --<arnaud.desvachez@gmail.com>
-  Purpose: Online protocol for deep meditation state neurofeedback.
-  Created: 14.10.2019
-"""
 
+import cv2
 import mne
 import os
 import sys
@@ -154,9 +150,6 @@ def init_psde(cfg, sfreq):
 
 #----------------------------------------------------------------------
 def init_feedback_sounds(path1, path2):
-    pgmixer.init()
-    pgmixer.set_num_channels(4)
-
     m1 = pgmixer.Sound(path1)
     m2 = pgmixer.Sound(path2)
     m1.set_volume(1.0)
@@ -205,6 +198,8 @@ def run(cfg, state=mp.Value('i', 1), queue=None):
         logger.error('\n** Error connecting to trigger device.')
         raise RuntimeError
 
+    logger.info('connected to trigger')
+
     #----------------------------------------------------------------------
     # LSL stream connection
     #----------------------------------------------------------------------
@@ -228,6 +223,10 @@ def run(cfg, state=mp.Value('i', 1), queue=None):
     #----------------------------------------------------------------------
     # Initialize the feedback sounds
     #----------------------------------------------------------------------
+
+    pgmixer.init()
+    pgmixer.set_num_channels(4)
+
     sound_1, sound_2 = init_feedback_sounds(cfg.MUSIC_STATE_1_PATH,
                                             cfg.MUSIC_STATE_2_PATH)
 
@@ -245,31 +244,39 @@ def run(cfg, state=mp.Value('i', 1), queue=None):
     pgmixer.music.load(cfg.START_VOICE_FILE)
 
     # Init feedback
-    viz = BarVisual(False, screen_pos=cfg.SCREEN_POS, screen_size=cfg.SCREEN_SIZE)
-    viz.fill()
-    viz.put_text('Close your eyes and relax')
-    viz.update()
+    #viz = BarVisual() # screen_pos=cfg.SCREEN_POS, screen_size=cfg.SCREEN_SIZE)
+    #viz.fill()
+    #viz.put_text('Close your eyes and relax')
+    #viz.update()
 
     # PLay the start voice
     pgmixer.music.play()
 
+    logger.info('waiting for keypress')
     # Wait a key press
     key = 0xFF & cv2.waitKey(0)
     if key == keys['esc'] or not state.value:
         sys.exit(-1)
 
-    viz.fill()
-    viz.put_text('Recording in progress')
-    viz.update()
+    #viz.fill()
+    #viz.put_text('Recording in progress')
+    #viz.update()
+
+    logger.info('waiting for keypress')
 
     trigger.signal(cfg.tdef.INIT)
+
+    logger.info('initiating feedback protocol')
 
     global_timer = qc.Timer(autoreset=False)
     internal_timer = qc.Timer(autoreset=True)
 
     sound_1.play(loops=-1)
     sound_2.play(loops=-1)
-    while state.value == 1 and global_timer.sec() < cfg.GLOBAL_TIME:
+
+    features = []
+
+    while global_timer.sec() < cfg.GLOBAL_TIME:
 
         #----------------------------------------------------------------------
         # Data acquisition
@@ -288,7 +295,10 @@ def run(cfg, state=mp.Value('i', 1), queue=None):
                 continue
 
         # Spatial filtering
-        window = pu.preprocess(window, sfreq=sfreq, spatial=cfg.SPATIAL_FILTER, spatial_ch=cfg.SPATIAL_CHANNELS)
+        window = pu.preprocess(window,
+                               sfreq=sfreq,
+                               spatial=cfg.SPATIAL_FILTER,
+                               spatial_ch=cfg.SPATIAL_CHANNELS)
 
         #----------------------------------------------------------------------
         # Computing the Power Spectrum Densities using multitapers
@@ -315,9 +325,15 @@ def run(cfg, state=mp.Value('i', 1), queue=None):
         else:
             applied_music_ratio = current_music_ratio
 
+        logger.info(f"feature: {feature:0.3f}\tapplied music_ratio: {applied_music_ratio:0.3f}")
+
         mix_sounds(style=cfg.MUSIC_MIX_STYLE,
                    sounds=(sound_1, sound_2),
                    feature_value=applied_music_ratio)
+
+        trigger.signal(cfg.tdef.FEEDBACK)
+
+        features.append((global_timer.sec(), feature, applied_music_ratio))
 
         last_ts = tslist[-1]
         internal_timer.sleep_atleast(cfg.TIMER_SLEEP)
@@ -325,9 +341,9 @@ def run(cfg, state=mp.Value('i', 1), queue=None):
     trigger.signal(cfg.tdef.END)
 
     # Remove the text
-    viz.fill()
-    viz.put_text('Recording is finished')
-    viz.update()
+    #viz.fill()
+    #viz.put_text('Recording is finished')
+    #viz.update()
 
     # Ending voice
     pgmixer.music.load(cfg.END_VOICE_FILE)
@@ -335,7 +351,7 @@ def run(cfg, state=mp.Value('i', 1), queue=None):
     time.sleep(5)
 
     # Close cv2 window
-    viz.finish()
+    #viz.finish()
 
 #----------------------------------------------------------------------
 def batch_run(cfg_module):

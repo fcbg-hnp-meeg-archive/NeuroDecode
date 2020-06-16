@@ -22,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 """
 
+import traceback
 import sys
 import numpy as np
 import time
@@ -31,15 +32,14 @@ import neurodecode.glass.bgi_client as bgi_client
 import neurodecode.utils.q_common as qc
 from neurodecode import logger
 
-
-class BarVisual(object):
+class BarVisual:
     # Default setting
     color = dict(G=(20, 140, 0), B=(210, 0, 0), R=(0, 50, 200),
         Y=(0, 215, 235), K=(0, 0, 0), W=(255, 255, 255), w=(200, 200, 200))
     barwidth = 100
     textlimit = 25  # maximum number of characters to show
 
-    def __init__(self, use_glass=False, glass_feedback=True, pc_feedback=True, screen_pos=None, screen_size=None):
+    def __init__(self, use_glass=False, glass_feedback=False, pc_feedback=True, screen_pos=None, screen_size=None):
         """
         Input:
             use_glass: if False, mock Glass will be used
@@ -68,15 +68,28 @@ class BarVisual(object):
         self.text_x = int(screen_width / 4)
         self.text_y = int(screen_height / 2)
         self.text_size = 2
-        cv2.namedWindow("img", cv2.WINDOW_AUTOSIZE)
+
+        logger.info('here??? really?')
+        try:
+            cv2.namedWindow("img", cv2.WINDOW_AUTOSIZE)
+        except Exception as e:
+            logger.info(str(e))
+
+        logger.info('here??? really? 2')
         cv2.moveWindow("img", screen_x, screen_y)
+        logger.info('here??? really? 3')
         cv2.setWindowProperty("img", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN);
+        logger.info('here??? really? 4')
 
         self.img = np.zeros((screen_height, screen_width, 3), np.uint8)
-        self.glass = bgi_client.GlassControl(mock=not use_glass)
-        self.glass.connect('127.0.0.1', 59900)
-        self.set_glass_feedback(glass_feedback)
+        #self.glass = bgi_client.GlassControl(mock=not use_glass)
+        #self.glass.connect('127.0.0.1', 59900)
+        #self.set_glass_feedback(glass_feedback)
+        logger.info('asdas2')
         self.set_pc_feedback(pc_feedback)
+
+        logger.info('asdas3')
+
         self.set_cue_color(boxcol='B', crosscol='W')
         self.width = self.img.shape[1]
         self.height = self.img.shape[0]
@@ -94,7 +107,7 @@ class BarVisual(object):
 
     def finish(self):
         cv2.destroyAllWindows()
-        self.glass.disconnect()
+        #self.glass.disconnect()
 
     def set_glass_feedback(self, fb):
         self.glass_feedback = fb
@@ -107,7 +120,7 @@ class BarVisual(object):
         self.crosscol = self.color[crosscol]
 
     def fill(self, fillcolor='K'):
-        self.glass.fill(fillcolor)
+        #self.glass.fill(fillcolor)
         cv2.rectangle(self.img, (0, 0), (self.width, self.height), self.color[fillcolor], -1)
 
     # draw cue with custom colors
@@ -136,7 +149,7 @@ class BarVisual(object):
         else:
             c = barcolor
 
-        self.glass.fullbar_color(c)
+        #self.glass.fullbar_color(c)
         color = self.color[c]
 
         if dir == 'L':
