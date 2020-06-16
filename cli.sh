@@ -57,6 +57,8 @@ while [[ $# -gt 0 ]]; do
     -f | --feedback )
       echo "playing feedback..."
       python -m neurodecode.protocols.NeuroFeedback.online_NeuroFeedback
+      shift
+      ;;
     *)
       echo "No option provided. Check help"
       display_help
