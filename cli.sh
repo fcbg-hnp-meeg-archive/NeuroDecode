@@ -22,8 +22,8 @@ display_help() {
 # - https://gist.github.com/cosimo/3760587
 
 opts=$(getopt \
-  -o sgvrh \
-  --long stream,gui,viewer,record,help \
+  -o sgvrhf \
+  --long stream,gui,viewer,record,feedback,help \
   --name "${0##*/}" \
   -- "$@"
 )
@@ -54,6 +54,9 @@ while [[ $# -gt 0 ]]; do
       python -m neurodecode.stream_recorder.stream_recorder "$NEUROD_DATA"
       shift
       ;;
+    -f | --feedback )
+      echo "playing feedback..."
+      python -m neurodecode.protocols.NeuroFeedback.online_NeuroFeedback
     *)
       echo "No option provided. Check help"
       display_help

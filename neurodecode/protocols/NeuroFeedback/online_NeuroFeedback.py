@@ -168,7 +168,9 @@ def compute_psd(window, psde):
     psd = psde.transform(window.reshape((1, window.shape[0], -1)))
     psd = psd.reshape((psd.shape[1], psd.shape[2]))                 # channels x frequencies
     psd =  np.sum(psd, axis=1)                                      #  Over frequencies
-    return np.mean(psd)                                            #  Over channels
+
+    return psd
+    #return np.mean(psd)                                            #  Over channels
 
 
 keys = {'left':81, 'right':83, 'up':82, 'down':84, 'pgup':85, 'pgdn':86,
@@ -274,8 +276,6 @@ def run(cfg, state=mp.Value('i', 1), queue=None):
     sound_1.play(loops=-1)
     sound_2.play(loops=-1)
 
-    features = []
-
     while global_timer.sec() < cfg.GLOBAL_TIME:
 
         #----------------------------------------------------------------------
@@ -286,6 +286,10 @@ def run(cfg, state=mp.Value('i', 1), queue=None):
         window, tslist = sr.get_window()    # window = [samples x channels]
         window = window.T                   # window = [channels x samples]
 
+        # if you want to select for some specific electrodes
+        # window = window[8, :]
+
+
         # Check if proper real-time acquisition
         if last_ts:
             tsnew = np.where(np.array(tslist) > last_ts)[0]
@@ -295,10 +299,7 @@ def run(cfg, state=mp.Value('i', 1), queue=None):
                 continue
 
         # Spatial filtering
-        window = pu.preprocess(window,
-                               sfreq=sfreq,
-                               spatial=cfg.SPATIAL_FILTER,
-                               spatial_ch=cfg.SPATIAL_CHANNELS)
+        window = pu.preprocess(window, sfreq=sfreq, spatial=cfg.SPATIAL_FILTER, spatial_ch=cfg.SPATIAL_CHANNELS)
 
         #----------------------------------------------------------------------
         # Computing the Power Spectrum Densities using multitapers
@@ -325,15 +326,9 @@ def run(cfg, state=mp.Value('i', 1), queue=None):
         else:
             applied_music_ratio = current_music_ratio
 
-        logger.info(f"feature: {feature:0.3f}\tapplied music_ratio: {applied_music_ratio:0.3f}")
-
         mix_sounds(style=cfg.MUSIC_MIX_STYLE,
                    sounds=(sound_1, sound_2),
                    feature_value=applied_music_ratio)
-
-        trigger.signal(cfg.tdef.FEEDBACK)
-
-        features.append((global_timer.sec(), feature, applied_music_ratio))
 
         last_ts = tslist[-1]
         internal_timer.sleep_atleast(cfg.TIMER_SLEEP)
@@ -364,7 +359,6 @@ def batch_run(cfg_module):
 
 #----------------------------------------------------------------------
 if __name__ == '__main__':
-
     cfg_module = '/home/sam/proj/epfl/eeg-meditation-project/neurodecode_scripts/NeuroFeedback/sam-NeuroFeedback/config_online_sam-NeuroFeedback.py'
     #if len(sys.argv) < 2:
     #    cfg_module = input('Config module name? ')

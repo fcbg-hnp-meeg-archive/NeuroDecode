@@ -5,34 +5,8 @@
 The underlying data communication is based on Lab Streaming Layer (LSL) which provides sub-millisecond time synchronization accuracy. Any signal acquisition system supported by native LSL or OpenVibe is also supported by NeuroDecode. Since the data communication is based on TCP, signals can be also transmitted wirelessly. For more information about LSL, please visit:
 [https://github.com/sccn/labstreaminglayer](https://github.com/sccn/labstreaminglayer)
 
-# Important modules
-
-### StreamReceiver
-The base module for acquiring signals used by other modules such as Decoder, StreamViewer and StreamRecorder.
-
-### StreamViewer
-Visualize signals in real time with spectral filtering, common average filtering options and real-time FFT.
-
-### StreamRecorder
-Record signals into fif format, a standard format mainly used in [MNE EEG analysis library](http://martinos.org/mne/).
-
-### StreamPlayer
-Replay the recorded signals in real time as if it was transmitted from a real acquisition server.
-
-### Decoder
-This folder contains decoder and trainer modules. Currently, LDA, regularized LDA, Random Forests, and Gradient Boosting Machines are supported as the classifier type. Neural Network-based decoders are currently under experiment.
-
-### Protocols
-Contains some basic protocols for training and testing. Google Glass visual feedback is supported through USB communication.
-
-### Triggers
-Triggers are used to mark event (stimulus) timings during the recording. This folder contains common trigger event definition files. 
-
-### Utils
-Contains various utilities.
-
-
-# Prerequisites
+# Setup
+## Prerequisites
 
 Anaconda is recommended for easy installation of Python environment.
 
@@ -55,9 +29,9 @@ NeuroDecode depends on following packages:
 Optional but strongly recommended:
   - [OpenVibe](http://openvibe.inria.fr/downloads)
 
-OpenVibe supports a wide range of acquisition servers and all acquisition systems supported by OpenVibe are supported by Neurodecode through LSL. Make sure you tick the checkbox "LSL_EnableLSLOutput" in Preferences when you run acquisition server. This will stream the data through the LSL network from which NeuroDecode receives data. 
+OpenVibe supports a wide range of acquisition servers and all acquisition systems supported by OpenVibe are supported by Neurodecode through LSL. Make sure you tick the checkbox "LSL_EnableLSLOutput" in Preferences when you run acquisition server. This will stream the data through the LSL network from which NeuroDecode receives data.
 
-# Installation
+## Installation
 
 Clone the repository:
 ```
@@ -66,14 +40,14 @@ git clone https://github.com/fcbg-hnp/NeuroDecode.git
 
 **Note**: This project requires Python 3.8.
 
-## Pip version / system version
+### Pip version / system version
 
 Run setup script:
 ```
 python setup.py develop
 ```
 
-## Conda version
+### Conda version
 
 Run
 
@@ -83,10 +57,36 @@ conda env create --file environment.yml
 
 # Running
 
-## Windows
+In general this system is a producer-consumer application. You need to start a
+data-streamer (either through  driver and a EEG measurements, or by streaming old data
+(see `cli.sh -s`)), followed by starting a consumer (e.g. `cli.sh -f` or `cli.sh -r`).
+
+Given that the whole application is a multi-process application it's highly advised to
+start these processes in a different shell, otherwise debugging is difficult.
+A one-click setup does not work right now.
+
+## Running steps
+
+1. Start the plugin and connect the EEG device to the computer.
+   On windows the port should be something along `com7` (check with the device manager).
+   On Linux the port should be something along `/dev/ttyUSB0` (check with `dmesg`)
+2. Check the signal by running `./cli.sh -v`
+3. Start the recording / feedback (either `./cli.sh -r` or `./cli.sh -f`).
+
+## Debugging and troubleshooting help
+
+- If the protocols can't make a connection, reset the connection using the driver
+- If connection problems persist, restart the device
+- If the program crashes or if you have to abort it, make sure that you have no
+    zombie-processes.
+  On Linux run: `ps aux | grep neurodecode` to check for such processes and then execute 
+  `pkill -f neurodecode` to kill them.
+
+## Platform specific instructions
+### Windows
 
 **IMPORTANT:** Create environment variables:
-> NEUROD_ROOT = NeuroDecode path 
+> NEUROD_ROOT = NeuroDecode path
 
 > NEUROD_DATA = path to the desired data folder (data will be saved there if using the GUI)
 
@@ -101,11 +101,41 @@ Add *%NEUROD_ROOT%/scripts* directory to PATH environment variable for convenien
 nd_gui.cmd
 ```
 
-## Linux
+### Linux
 
-Checkout out `cli.sh` and `env.sh`. All environment variables (and some simple helper variables) and
-the conda environment will be loaded if you execute `. ./env.sh`. This has to be run before using
-the CLI.
+Checkout out `cli.sh` and `env`. All environment variables (and some simple helper
+variables) and the conda environment will be loaded if you execute `source env`. This has
+to be run before using the CLI. In order to use all provided options you'll have to adapt
+paths in certain files. For example in the config files (e.g. `neurodecode/config_files/Neurofeedback/template_files/config_online.py`)
+and the protocols themselves (e.g. `neurodecode/protocols/NeuroFeedback/online_NeuroFeedback.py`).
+
+# Important modules
+
+### StreamReceiver
+The base module for acquiring signals used by other modules such as Decoder, StreamViewer and StreamRecorder.
+
+### StreamViewer
+Visualize signals in real time with spectral filtering, common average filtering options and real-time FFT.
+
+### StreamRecorder
+Record signals into fif format, a standard format mainly used in [MNE EEG analysis library](http://martinos.org/mne/).
+
+### StreamPlayer
+Replay the recorded signals in real time as if it was transmitted from a real acquisition server.
+
+### Decoder
+This folder contains decoder and trainer modules. Currently, LDA, regularized LDA, Random Forests, and Gradient Boosting Machines are supported as the classifier type. Neural Network-based decoders are currently under experiment.
+
+### Protocols
+Contains some basic protocols for training and testing. Google Glass visual feedback is supported through USB communication.
+
+### Triggers
+Triggers are used to mark event (stimulus) timings during the recording. This folder contains common trigger event definition files.
+
+### Utils
+Contains various utilities.
+
+
 
 
 ## For Windows users, increase timer resolution
@@ -126,7 +156,7 @@ The following customized acquisition server is needed instead of default LSL app
 ```
 git clone https://github.com/dbdq/gUSBamp_pycnbi.git
 ```
-because the default gUSBamp LSL server do not stream event channel as part of the signal stream but as a separate server. The customized version supports simultaneous signal+event channel streaming. 
+because the default gUSBamp LSL server do not stream event channel as part of the signal stream but as a separate server. The customized version supports simultaneous signal+event channel streaming.
 
 
 ## For AntNeuro eego users
@@ -134,7 +164,7 @@ Use the OpenVibe acquisition server and make sure to check "LSL output" in prefe
 
 
 # To do
-  - Tutorial 
+  - Tutorial
   - More cpu-efficient decoder class
   - Numba optimization
 
