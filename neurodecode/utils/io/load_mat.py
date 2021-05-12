@@ -1,5 +1,5 @@
-import os
 import scipy
+import numpy as np
 
 #----------------------------------------------------------------------
 def load_mat(filename):
