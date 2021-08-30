@@ -1,0 +1,6 @@
+﻿neurodecode.utils.io.read\_raw\_fif\_multi
+==========================================
+
+.. currentmodule:: neurodecode.utils.io
+
+.. autofunction:: read_raw_fif_multi

@@ -1,4 +1,4 @@
-neurodecode.utils.lsl.start\_server
+﻿neurodecode.utils.lsl.start\_server
 ===================================
 
 .. currentmodule:: neurodecode.utils.lsl

@@ -1,0 +1,6 @@
+﻿neurodecode.utils.io.read\_raw\_fif
+===================================
+
+.. currentmodule:: neurodecode.utils.io
+
+.. autofunction:: read_raw_fif

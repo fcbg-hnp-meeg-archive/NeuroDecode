@@ -1,0 +1,6 @@
+﻿neurodecode.utils.io.write\_set
+===============================
+
+.. currentmodule:: neurodecode.utils.io
+
+.. autofunction:: write_set

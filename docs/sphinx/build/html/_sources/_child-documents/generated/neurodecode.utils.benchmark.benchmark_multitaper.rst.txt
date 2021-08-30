@@ -1,4 +1,4 @@
-neurodecode.utils.benchmark.benchmark\_multitaper
+﻿neurodecode.utils.benchmark.benchmark\_multitaper
 =================================================
 
 .. currentmodule:: neurodecode.utils.benchmark

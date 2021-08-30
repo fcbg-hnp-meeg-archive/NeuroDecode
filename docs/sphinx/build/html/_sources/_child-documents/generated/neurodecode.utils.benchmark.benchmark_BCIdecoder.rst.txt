@@ -1,4 +1,4 @@
-neurodecode.utils.benchmark.benchmark\_BCIdecoder
+﻿neurodecode.utils.benchmark.benchmark\_BCIdecoder
 =================================================
 
 .. currentmodule:: neurodecode.utils.benchmark

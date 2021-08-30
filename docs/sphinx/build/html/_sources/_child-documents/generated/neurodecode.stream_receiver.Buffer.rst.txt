@@ -1,4 +1,4 @@
-neurodecode.stream\_receiver.Buffer
+﻿neurodecode.stream\_receiver.Buffer
 ===================================
 
 .. currentmodule:: neurodecode.stream_receiver

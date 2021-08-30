@@ -1,42 +1,48 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>neurodecode.utils.preprocess.preprocess &mdash; NeuroDecode 0.5.dev0 documentation</title>
+  <title>neurodecode.utils.preprocess.preprocess &mdash; NeuroDecode 0.5.3 documentation</title>
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
 
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="neurodecode.utils.preprocess.rereference" href="neurodecode.utils.preprocess.rereference.html" />
-    <link rel="prev" title="neurodecode.utils.math.confusion_matrix" href="neurodecode.utils.math.confusion_matrix.html" /> 
+    <link rel="next" title="neurodecode.utils.preprocess.current_source_density" href="neurodecode.utils.preprocess.current_source_density.html" />
+    <link rel="prev" title="neurodecode.utils.preprocess.available_transformation" href="neurodecode.utils.preprocess.available_transformation.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -60,7 +66,7 @@
             
             
               <div class="version">
-                0.5.dev0
+                0.5.3
               </div>
             
           
@@ -77,6 +83,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -87,7 +94,7 @@
               <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/fcbg-hnp/NeuroDecode/">GitHub</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Getting Started</span></p>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html"> Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../installation.html#dependencies">Dependencies</a></li>
@@ -112,7 +119,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../user-guide.html">User Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../user-guide.html#streamreceiver">StreamReceiver</a></li>
@@ -164,8 +171,6 @@
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api.html#utils-neurodecode-utils">Utils <code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils</span></code></a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.benchmark"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.benchmark</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.debug"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.debug</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.etc"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.etc</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.io"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.io</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.layouts"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.layouts</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.lsl"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.lsl</span></code></a></li>
@@ -181,6 +186,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -215,11 +221,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../api.html">API Documentation</a> &raquo;</li>
         
@@ -228,7 +236,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/_child-documents/generated/neurodecode.utils.preprocess.preprocess.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -245,37 +253,36 @@
   <div class="section" id="neurodecode-utils-preprocess-preprocess">
 <h1>neurodecode.utils.preprocess.preprocess<a class="headerlink" href="#neurodecode-utils-preprocess-preprocess" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="neurodecode.utils.preprocess.preprocess">
-<code class="sig-prename descclassname">neurodecode.utils.preprocess.</code><code class="sig-name descname">preprocess</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">raw</span></em>, <em class="sig-param"><span class="n">sfreq</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">spatial</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">spatial_ch</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">spectral</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">spectral_ch</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">notch</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">notch_ch</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">multiplier</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">ch_names</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">rereference</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">decim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">n_jobs</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.utils.preprocess.preprocess" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply spatial, spectral, notch filters, rereference and decim.</p>
-<p>raw is modified in-place.Neurodecode puts trigger channel as index 0, data channel starts from index 1.</p>
+<dt class="sig sig-object py" id="neurodecode.utils.preprocess.preprocess">
+<span class="sig-prename descclassname"><span class="pre">neurodecode.utils.preprocess.</span></span><span class="sig-name descname"><span class="pre">preprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transformations</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.utils.preprocess.preprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the transformations to the MNE instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>raw</strong> (<em>mne.io.Raw | mne.io.RawArray | mne.Epochs | numpy.array</em><em> (</em><em>n_channels x n_samples</em><em>)</em>) – The raw data (numpy.array type assumes the data has only pure EEG channnels without event channels)</p></li>
-<li><p><strong>sfreq</strong> (<em>float</em>) – Only required if raw is numpy array.</p></li>
-<li><p><strong>spatial</strong> (<em>None | 'car' | 'laplacian'</em>) – Spatial filter type.</p></li>
-<li><p><strong>spatial_ch</strong> (<em>None | list</em><em> (</em><em>for CAR</em><em>) </em><em>| dict</em><em> (</em><em>for LAPLACIAN</em><em>)</em>) – Reference channels for spatial filtering. May contain channel names.
-‘car’: channel indices used for CAR filtering. If None, use all channels except the trigger channel (index 0).
-‘laplacian’: {channel:[neighbor1, neighbor2, …], …}</p></li>
-<li><p><strong>spectral</strong> (<em>None |</em><em> [</em><em>l_freq</em><em>, </em><em>h_freq</em><em>]</em>) – Spectral filter.
-if l_freq is None: lowpass filter is applied.
-if h_freq is None: highpass filter is applied.
-if l_freq &lt; h_freq: bandpass filter is applied.
-if l_freq &gt; h_freq: band-stop filter is applied.</p></li>
-<li><p><strong>spectral_ch</strong> (<em>None | list</em>) – Channel picks for spectral filtering. May contain channel names.</p></li>
-<li><p><strong>notch</strong> (<em>None | float | list</em>) – Notch filter.</p></li>
-<li><p><strong>notch_ch</strong> (<em>None | list</em>) – Channel picks for notch filtering. May contain channel names.</p></li>
-<li><p><strong>multiplier</strong> (<em>int</em>) – Used for changing eeg data unit. Mne assumes Volts.</p></li>
-<li><p><strong>ch_names</strong> (<em>None | list</em>) – If raw is numpy array and channel picks are list of strings, ch_names will
-be used as a look-up table to convert channel picks to channel numbers.</p></li>
-<li><p><strong>rereference</strong> (<em>list</em>) – List of new and old references. [[ref_new_1, …, ref_new_N], [ref_old_1, …, ref_old_N]]</p></li>
-<li><p><strong>decim</strong> (<em>None | int</em>) – Apply low-pass filter and decimate (downsample). sfreq must be given. Ignored if 1.</p></li>
-<li><p><strong>Output</strong> – </p></li>
-<li><p><strong>------</strong> – </p></li>
-<li><p><strong>input data structure.</strong> (<em>Same</em>) – </p></li>
-<li><p><strong>Note</strong> (<em>To save computation time</em><em>, </em><em>input data may be modified in-place.</em>) – </p></li>
-<li><p><strong>TODO</strong> (<em>Add an option to disable in-place modification.</em>) – </p></li>
+<li><p><strong>inst</strong> (<em>mne.io.Raw</em><em> | </em><em>mne.io.RawArray</em><em> | </em><em>mne.Epochs</em><em> | </em><em>mne.Evoked</em>) – MNE instance of Raw | Epochs | Evoked.</p></li>
+<li><p><strong>transformations</strong> (<em>dict</em>) – <p>The dict containing the transformations and arguments to pass to each
+transformation.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>key: str</dt><dd><p>The name of the transformation function.</p>
+</dd>
+<dt>value: list | dict</dt><dd><p>The list of arguments (<a href="#id1"><span class="problematic" id="id2">*</span></a>args) to pass to the transformation
+function or the dictionnary of kwargs (<a href="#id3"><span class="problematic" id="id4">*</span></a>kwargs) to pass to the
+transformation function.</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl>
+<dt>Example:</dt><dd><dl class="simple">
+<dt>{</dt><dd><p>‘notch_filter’: {‘freqs’: np.arange(50, 151, 50)},
+‘spectral_filter’: [1, 40, ‘eeg’],
+‘set_eeg_reference’: [‘average’, ‘CPz’]</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+</p></li>
 </ul>
 </dd>
 </dl>
@@ -288,16 +295,10 @@ be used as a look-up table to convert channel picks to channel numbers.</p></li>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="neurodecode.utils.preprocess.rereference.html" class="btn btn-neutral float-right" title="neurodecode.utils.preprocess.rereference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="neurodecode.utils.math.confusion_matrix.html" class="btn btn-neutral float-left" title="neurodecode.utils.math.confusion_matrix" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="neurodecode.utils.preprocess.current_source_density.html" class="btn btn-neutral float-right" title="neurodecode.utils.preprocess.current_source_density" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="neurodecode.utils.preprocess.available_transformation.html" class="btn btn-neutral float-left" title="neurodecode.utils.preprocess.available_transformation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
@@ -308,7 +309,6 @@ be used as a look-up table to convert channel picks to channel numbers.</p></li>
   </div> 
 
 </footer>
-
         </div>
       </div>
 
@@ -316,7 +316,6 @@ be used as a look-up table to convert channel picks to channel numbers.</p></li>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

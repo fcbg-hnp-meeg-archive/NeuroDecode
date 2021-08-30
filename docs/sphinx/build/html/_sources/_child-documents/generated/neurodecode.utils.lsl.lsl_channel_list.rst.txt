@@ -1,4 +1,4 @@
-neurodecode.utils.lsl.lsl\_channel\_list
+﻿neurodecode.utils.lsl.lsl\_channel\_list
 ========================================
 
 .. currentmodule:: neurodecode.utils.lsl

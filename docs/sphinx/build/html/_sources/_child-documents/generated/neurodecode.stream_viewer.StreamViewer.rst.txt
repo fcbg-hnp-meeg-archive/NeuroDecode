@@ -1,4 +1,4 @@
-neurodecode.stream\_viewer.StreamViewer
+﻿neurodecode.stream\_viewer.StreamViewer
 =======================================
 
 .. currentmodule:: neurodecode.stream_viewer
@@ -14,7 +14,6 @@ neurodecode.stream\_viewer.StreamViewer
    .. autosummary::
    
       ~StreamViewer.__init__
-      ~StreamViewer.search_stream
       ~StreamViewer.start
    
    

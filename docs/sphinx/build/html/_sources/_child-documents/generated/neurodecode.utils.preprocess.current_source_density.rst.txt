@@ -1,0 +1,6 @@
+﻿neurodecode.utils.preprocess.current\_source\_density
+=====================================================
+
+.. currentmodule:: neurodecode.utils.preprocess
+
+.. autofunction:: current_source_density

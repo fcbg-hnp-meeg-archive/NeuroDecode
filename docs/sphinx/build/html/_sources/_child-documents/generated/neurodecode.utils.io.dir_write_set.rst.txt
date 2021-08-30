@@ -1,0 +1,6 @@
+﻿neurodecode.utils.io.dir\_write\_set
+====================================
+
+.. currentmodule:: neurodecode.utils.io
+
+.. autofunction:: dir_write_set

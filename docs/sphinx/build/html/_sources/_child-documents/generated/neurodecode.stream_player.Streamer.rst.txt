@@ -1,4 +1,4 @@
-neurodecode.stream\_player.Streamer
+﻿neurodecode.stream\_player.Streamer
 ===================================
 
 .. currentmodule:: neurodecode.stream_player
@@ -33,6 +33,6 @@ neurodecode.stream\_player.Streamer
       ~Streamer.chunk_size
       ~Streamer.events
       ~Streamer.raw
-      ~Streamer.server_name
+      ~Streamer.stream_name
    
    

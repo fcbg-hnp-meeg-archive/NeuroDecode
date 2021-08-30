@@ -1,4 +1,4 @@
-neurodecode.utils.math.average\_every\_n
+﻿neurodecode.utils.math.average\_every\_n
 ========================================
 
 .. currentmodule:: neurodecode.utils.math

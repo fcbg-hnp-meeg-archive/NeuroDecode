@@ -1,4 +1,4 @@
-neurodecode.utils.io.get\_dir\_list
+﻿neurodecode.utils.io.get\_dir\_list
 ===================================
 
 .. currentmodule:: neurodecode.utils.io

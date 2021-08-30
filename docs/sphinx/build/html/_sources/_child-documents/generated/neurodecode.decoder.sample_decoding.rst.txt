@@ -1,4 +1,4 @@
-neurodecode.decoder.sample\_decoding
+﻿neurodecode.decoder.sample\_decoding
 ====================================
 
 .. currentmodule:: neurodecode.decoder

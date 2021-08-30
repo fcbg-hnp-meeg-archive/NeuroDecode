@@ -1,4 +1,4 @@
-neurodecode.utils.io.any2fif
+﻿neurodecode.utils.io.any2fif
 ============================
 
 .. currentmodule:: neurodecode.utils.io

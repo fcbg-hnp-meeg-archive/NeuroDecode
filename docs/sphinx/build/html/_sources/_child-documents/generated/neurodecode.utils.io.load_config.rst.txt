@@ -1,4 +1,4 @@
-neurodecode.utils.io.load\_config
+﻿neurodecode.utils.io.load\_config
 =================================
 
 .. currentmodule:: neurodecode.utils.io

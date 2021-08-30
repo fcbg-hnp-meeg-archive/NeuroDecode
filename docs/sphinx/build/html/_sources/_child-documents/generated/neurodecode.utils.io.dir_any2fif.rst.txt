@@ -1,0 +1,6 @@
+﻿neurodecode.utils.io.dir\_any2fif
+=================================
+
+.. currentmodule:: neurodecode.utils.io
+
+.. autofunction:: dir_any2fif

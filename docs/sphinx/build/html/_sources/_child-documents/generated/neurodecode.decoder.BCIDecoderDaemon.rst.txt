@@ -1,4 +1,4 @@
-neurodecode.decoder.BCIDecoderDaemon
+﻿neurodecode.decoder.BCIDecoderDaemon
 ====================================
 
 .. currentmodule:: neurodecode.decoder

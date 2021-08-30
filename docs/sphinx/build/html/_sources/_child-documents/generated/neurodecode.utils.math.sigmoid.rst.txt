@@ -1,4 +1,4 @@
-neurodecode.utils.math.sigmoid
+﻿neurodecode.utils.math.sigmoid
 ==============================
 
 .. currentmodule:: neurodecode.utils.math

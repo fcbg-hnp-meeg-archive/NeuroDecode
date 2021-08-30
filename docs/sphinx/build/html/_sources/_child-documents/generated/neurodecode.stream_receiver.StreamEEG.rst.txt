@@ -1,4 +1,4 @@
-neurodecode.stream\_receiver.StreamEEG
+﻿neurodecode.stream\_receiver.StreamEEG
 ======================================
 
 .. currentmodule:: neurodecode.stream_receiver

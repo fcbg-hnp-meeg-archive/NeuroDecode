@@ -1,38 +1,44 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>neurodecode.stream_receiver.Buffer &mdash; NeuroDecode 0.5.dev0 documentation</title>
+  <title>neurodecode.stream_receiver.Buffer &mdash; NeuroDecode 0.5.3 documentation</title>
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
 
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="neurodecode.stream_viewer.StreamViewer" href="neurodecode.stream_viewer.StreamViewer.html" />
@@ -60,7 +66,7 @@
             
             
               <div class="version">
-                0.5.dev0
+                0.5.3
               </div>
             
           
@@ -77,6 +83,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -87,7 +94,7 @@
               <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/fcbg-hnp/NeuroDecode/">GitHub</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Getting Started</span></p>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html"> Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../installation.html#dependencies">Dependencies</a></li>
@@ -112,7 +119,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../user-guide.html">User Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../user-guide.html#streamreceiver">StreamReceiver</a></li>
@@ -164,8 +171,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#utils-neurodecode-utils">Utils <code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.benchmark"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.benchmark</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.debug"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.debug</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.etc"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.etc</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.io"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.io</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.layouts"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.layouts</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.lsl"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.lsl</span></code></a></li>
@@ -181,6 +186,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -215,11 +221,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../api.html">API Documentation</a> &raquo;</li>
         
@@ -228,7 +236,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/_child-documents/generated/neurodecode.stream_receiver.Buffer.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -245,23 +253,22 @@
   <div class="section" id="neurodecode-stream-receiver-buffer">
 <h1>neurodecode.stream_receiver.Buffer<a class="headerlink" href="#neurodecode-stream-receiver-buffer" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt id="neurodecode.stream_receiver.Buffer">
-<em class="property">class </em><code class="sig-prename descclassname">neurodecode.stream_receiver.</code><code class="sig-name descname">Buffer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">buffer_size</span></em>, <em class="sig-param"><span class="n">window_size</span></em>, <em class="sig-param"><span class="n">lsl_bufsize</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.stream_receiver.Buffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class representing the stream’s buffer.</p>
+<dt class="sig sig-object py" id="neurodecode.stream_receiver.Buffer">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">neurodecode.stream_receiver.</span></span><span class="sig-name descname"><span class="pre">Buffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bufsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">winsize</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.stream_receiver.Buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class representing the stream’s buffer.
+This is not a Python Buffer Interface compatible class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>buffer_size</strong> (<em>int</em>) – Buffer’s size [samples].</p></li>
-<li><p><strong>window_size</strong> (<em>int</em>) – To extract the latest winsize samples from the buffer [samples].</p></li>
-<li><p><strong>lsl_bufsize</strong> – The LSL buffer size (can be smaller than buffer_size because stream_receiver acquire at regular interval)</p></li>
+<li><p><strong>bufsize</strong> (<em>int</em>) – Buffer’s size [samples].</p></li>
+<li><p><strong>winsize</strong> (<em>int</em>) – To extract the latest winsize samples from the buffer [samples].</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="neurodecode.stream_receiver.Buffer.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">buffer_size</span></em>, <em class="sig-param"><span class="n">window_size</span></em>, <em class="sig-param"><span class="n">lsl_bufsize</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.stream_receiver.Buffer.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</dd></dl>
+<dt class="sig sig-object py" id="neurodecode.stream_receiver.Buffer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bufsize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">winsize</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.stream_receiver.Buffer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
@@ -270,8 +277,8 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#neurodecode.stream_receiver.Buffer.__init__" title="neurodecode.stream_receiver.Buffer.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(buffer_size, window_size, lsl_bufsize)</p></td>
-<td><p>Initialize self.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#neurodecode.stream_receiver.Buffer.__init__" title="neurodecode.stream_receiver.Buffer.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(bufsize, winsize)</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#neurodecode.stream_receiver.Buffer.fill" title="neurodecode.stream_receiver.Buffer.fill"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill</span></code></a>(data, tslist)</p></td>
 <td><p>Fill the data and timestamps to the buffer.</p></td>
@@ -302,21 +309,21 @@
 </tr>
 </tbody>
 </table>
-<dl class="py method">
-<dt id="neurodecode.stream_receiver.Buffer.bufsize">
-<em class="property">property </em><code class="sig-name descname">bufsize</code><a class="headerlink" href="#neurodecode.stream_receiver.Buffer.bufsize" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="neurodecode.stream_receiver.Buffer.bufsize">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">bufsize</span></span><a class="headerlink" href="#neurodecode.stream_receiver.Buffer.bufsize" title="Permalink to this definition">¶</a></dt>
 <dd><p>The buffer’s size [samples].</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="neurodecode.stream_receiver.Buffer.data">
-<em class="property">property </em><code class="sig-name descname">data</code><a class="headerlink" href="#neurodecode.stream_receiver.Buffer.data" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="neurodecode.stream_receiver.Buffer.data">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#neurodecode.stream_receiver.Buffer.data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Buffer’s data [samples x channels].</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="neurodecode.stream_receiver.Buffer.fill">
-<code class="sig-name descname">fill</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">tslist</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.stream_receiver.Buffer.fill" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="neurodecode.stream_receiver.Buffer.fill">
+<span class="sig-name descname"><span class="pre">fill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tslist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.stream_receiver.Buffer.fill" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fill the data and timestamps to the buffer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -329,20 +336,20 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="neurodecode.stream_receiver.Buffer.reset_buffer">
-<code class="sig-name descname">reset_buffer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.stream_receiver.Buffer.reset_buffer" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="neurodecode.stream_receiver.Buffer.reset_buffer">
+<span class="sig-name descname"><span class="pre">reset_buffer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.stream_receiver.Buffer.reset_buffer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clear the buffer’s data and timestamps.</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="neurodecode.stream_receiver.Buffer.timestamps">
-<em class="property">property </em><code class="sig-name descname">timestamps</code><a class="headerlink" href="#neurodecode.stream_receiver.Buffer.timestamps" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="neurodecode.stream_receiver.Buffer.timestamps">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">timestamps</span></span><a class="headerlink" href="#neurodecode.stream_receiver.Buffer.timestamps" title="Permalink to this definition">¶</a></dt>
 <dd><p>Data’s timestamps [samples].</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="neurodecode.stream_receiver.Buffer.winsize">
-<em class="property">property </em><code class="sig-name descname">winsize</code><a class="headerlink" href="#neurodecode.stream_receiver.Buffer.winsize" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="neurodecode.stream_receiver.Buffer.winsize">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">winsize</span></span><a class="headerlink" href="#neurodecode.stream_receiver.Buffer.winsize" title="Permalink to this definition">¶</a></dt>
 <dd><p>The window’s size [samples].</p>
 </dd></dl>
 
@@ -355,16 +362,10 @@
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="neurodecode.stream_viewer.StreamViewer.html" class="btn btn-neutral float-right" title="neurodecode.stream_viewer.StreamViewer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="neurodecode.stream_receiver.StreamEEG.html" class="btn btn-neutral float-left" title="neurodecode.stream_receiver.StreamEEG" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="neurodecode.stream_viewer.StreamViewer.html" class="btn btn-neutral float-right" title="neurodecode.stream_viewer.StreamViewer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="neurodecode.stream_receiver.StreamEEG.html" class="btn btn-neutral float-left" title="neurodecode.stream_receiver.StreamEEG" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
@@ -375,7 +376,6 @@
   </div> 
 
 </footer>
-
         </div>
       </div>
 
@@ -383,7 +383,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

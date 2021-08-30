@@ -1,4 +1,4 @@
-neurodecode.decoder.check\_speed
+﻿neurodecode.decoder.check\_speed
 ================================
 
 .. currentmodule:: neurodecode.decoder

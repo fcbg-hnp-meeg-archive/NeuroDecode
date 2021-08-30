@@ -1,0 +1,6 @@
+﻿neurodecode.utils.preprocess.notch\_filter
+==========================================
+
+.. currentmodule:: neurodecode.utils.preprocess
+
+.. autofunction:: notch_filter

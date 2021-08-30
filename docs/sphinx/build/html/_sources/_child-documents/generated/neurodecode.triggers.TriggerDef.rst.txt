@@ -1,4 +1,4 @@
-neurodecode.triggers.TriggerDef
+﻿neurodecode.triggers.TriggerDef
 ===============================
 
 .. currentmodule:: neurodecode.triggers

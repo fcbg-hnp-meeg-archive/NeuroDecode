@@ -1,4 +1,4 @@
-neurodecode.utils.preprocess.preprocess
+﻿neurodecode.utils.preprocess.preprocess
 =======================================
 
 .. currentmodule:: neurodecode.utils.preprocess

@@ -1,4 +1,4 @@
-neurodecode.decoder.get\_decoder\_info
+﻿neurodecode.decoder.get\_decoder\_info
 ======================================
 
 .. currentmodule:: neurodecode.decoder

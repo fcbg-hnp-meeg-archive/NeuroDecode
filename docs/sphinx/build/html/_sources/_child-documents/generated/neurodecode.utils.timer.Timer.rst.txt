@@ -1,4 +1,4 @@
-neurodecode.utils.timer.Timer
+﻿neurodecode.utils.timer.Timer
 =============================
 
 .. currentmodule:: neurodecode.utils.timer

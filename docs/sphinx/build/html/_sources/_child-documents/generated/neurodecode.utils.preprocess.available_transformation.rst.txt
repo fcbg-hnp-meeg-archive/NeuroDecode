@@ -1,0 +1,6 @@
+﻿neurodecode.utils.preprocess.available\_transformation
+======================================================
+
+.. currentmodule:: neurodecode.utils.preprocess
+
+.. autofunction:: available_transformation

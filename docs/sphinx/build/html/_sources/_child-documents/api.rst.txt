@@ -25,22 +25,22 @@ Stream Receiver: :mod:`neurodecode.stream_receiver`
 .. code-block:: python
 
     from neurodecode.stream_receiver import StreamReceiver
-    from neurodecode.utils.timer import Timer 
-    
+    from neurodecode.utils.timer import Timer
+
     stream_name = int(input("Provide the name of the stream you want to acquire \n>> "))
-    
+
     # Instance a StreamReceiver, which will look for all the available streams on the LSL network.
     sr = StreamReceiver(window_size=0.5, buffer_size=1, amp_name=stream_name, eeg_only=False)
 
-    
+
     # Timer for acquisition rate, here 20 Hz
     tm = Timer(autoreset=True)
 
     while True:
-    
+
         # Acquire data from all the connected LSL streams by filling each associated buffers.
         sr.acquire()
-        
+
         # Extract the latest window from the buffer of the chosen stream.
         window, tslist = sr.get_window(stream_name=stream_name)              # window = [samples x channels], tslist = [samples]
 
@@ -147,7 +147,7 @@ Trigger: :mod:`neurodecode.triggers`
 
     # Instance a communication with the desktop LPT.
     trg = Trigger(lpttype='DESKTOP', portaddr=0x378)
-    
+
     # Initialize the trigger duration to 50ms
     trg.init(50)
 
@@ -197,46 +197,6 @@ Utils :mod:`neurodecode.utils`
    benchmark_BCIdecoder
    benchmark_multitaper
 
-:mod:`neurodecode.utils.debug`
-------------------------------
-
-.. automodule:: neurodecode.utils.debug
-    :no-members:
-    :no-inherited-members:
-
-.. currentmodule:: neurodecode.utils.debug
-
-.. autosummary::
-   :nosignatures:
-   :toctree: generated
-
-   auto_debug
-   shell
-   run_multi
-
-:mod:`neurodecode.utils.etc`
-----------------------------
-
-.. automodule:: neurodecode.utils.etc
-    :no-members:
-    :no-inherited-members:
-
-.. currentmodule:: neurodecode.utils.etc
-
-.. autosummary::
-   :nosignatures:
-   :toctree: generated
-
-   list2string  
-   flatten_list
-   get_index_min
-   get_index_max
-   sort_by_value
-   detect_delim
-   int2bits
-   bits2int
-   images2pkl
-
 :mod:`neurodecode.utils.io`
 ---------------------------
 
@@ -250,32 +210,17 @@ Utils :mod:`neurodecode.utils`
    :nosignatures:
    :toctree: generated
 
-   any2fif 
    pcl2fif
-   edf2fif
-   bdf2fif
-   gdf2fif
-   xdf2fif
-   eeg2fif
-   mat2fif
-   fif2mat
-   load_fif_raw
-   load_fif_multi
-   load_mat
+   any2fif
+   dir_any2fif
+   read_raw_fif
+   read_raw_fif_multi
    load_config
    get_file_list
    get_dir_list
    make_dirs
-   save_obj
-   load_obj
-   loadtxt_fast
-   fif_info
-   fif_resample
-   merge_events
-   event_timestamps_to_indices
-   fix_channel_names
-   parse_path
-   forward_slashify
+   write_set
+   dir_write_set
 
 :mod:`neurodecode.utils.layouts`
 --------------------------------
@@ -290,7 +235,7 @@ Utils :mod:`neurodecode.utils`
    :nosignatures:
    :toctree: generated
 
-   Cap
+   Layout
 
 :mod:`neurodecode.utils.lsl`
 ----------------------------
@@ -308,7 +253,7 @@ Utils :mod:`neurodecode.utils`
    start_server
    start_client
    list_lsl_streams
-   search_lsl 
+   search_lsl
    lsl_channel_list
 
 :mod:`neurodecode.utils.math`
@@ -325,12 +270,10 @@ Utils :mod:`neurodecode.utils`
    :toctree: generated
 
    sigmoid
-   sigmoid_array
    dirichlet
    beta
    poisson
    average_every_n
-   confusion_matrix
 
 :mod:`neurodecode.utils.preprocess`
 -----------------------------------
@@ -345,9 +288,26 @@ Utils :mod:`neurodecode.utils`
    :nosignatures:
    :toctree: generated
 
+   available_transformation
    preprocess
-   rereference
-   find_event_channel
+   current_source_density
+   notch_filter
+   spectral_filter
+   laplacian_filter
+   rename_channels
+   resample
+   set_channel_types
+   set_eeg_reference
+   set_montage
+   dir_preprocess
+   dir_current_source_density
+   dir_notch_filter
+   dir_laplacian_filter
+   dir_rename_channels
+   dir_resample
+   dir_set_channel_types
+   dir_set_eeg_reference
+   dir_set_montage
 
 :mod:`neurodecode.utils.timer`
 ------------------------------

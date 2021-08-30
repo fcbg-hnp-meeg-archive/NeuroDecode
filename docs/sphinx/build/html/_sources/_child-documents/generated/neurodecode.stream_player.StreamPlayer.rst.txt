@@ -1,4 +1,4 @@
-neurodecode.stream\_player.StreamPlayer
+﻿neurodecode.stream\_player.StreamPlayer
 =======================================
 
 .. currentmodule:: neurodecode.stream_player
@@ -29,7 +29,7 @@ neurodecode.stream\_player.StreamPlayer
       ~StreamPlayer.chunk_size
       ~StreamPlayer.fif_file
       ~StreamPlayer.process
-      ~StreamPlayer.server_name
+      ~StreamPlayer.stream_name
       ~StreamPlayer.trigger_file
    
    

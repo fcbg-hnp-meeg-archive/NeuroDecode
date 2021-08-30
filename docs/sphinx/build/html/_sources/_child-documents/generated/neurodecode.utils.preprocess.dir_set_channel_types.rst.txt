@@ -1,0 +1,6 @@
+﻿neurodecode.utils.preprocess.dir\_set\_channel\_types
+=====================================================
+
+.. currentmodule:: neurodecode.utils.preprocess
+
+.. autofunction:: dir_set_channel_types

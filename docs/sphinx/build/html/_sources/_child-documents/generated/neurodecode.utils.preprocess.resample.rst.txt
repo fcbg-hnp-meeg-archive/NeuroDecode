@@ -1,0 +1,6 @@
+﻿neurodecode.utils.preprocess.resample
+=====================================
+
+.. currentmodule:: neurodecode.utils.preprocess
+
+.. autofunction:: resample

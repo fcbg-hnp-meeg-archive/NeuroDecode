@@ -1,4 +1,4 @@
-neurodecode.decoder.compute\_features
+﻿neurodecode.decoder.compute\_features
 =====================================
 
 .. currentmodule:: neurodecode.decoder

@@ -1,0 +1,6 @@
+﻿neurodecode.utils.preprocess.dir\_set\_eeg\_reference
+=====================================================
+
+.. currentmodule:: neurodecode.utils.preprocess
+
+.. autofunction:: dir_set_eeg_reference

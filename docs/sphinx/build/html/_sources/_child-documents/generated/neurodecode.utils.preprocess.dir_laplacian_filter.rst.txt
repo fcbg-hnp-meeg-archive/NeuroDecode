@@ -1,0 +1,6 @@
+﻿neurodecode.utils.preprocess.dir\_laplacian\_filter
+===================================================
+
+.. currentmodule:: neurodecode.utils.preprocess
+
+.. autofunction:: dir_laplacian_filter

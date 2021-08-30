@@ -1,0 +1,6 @@
+﻿neurodecode.utils.preprocess.spectral\_filter
+=============================================
+
+.. currentmodule:: neurodecode.utils.preprocess
+
+.. autofunction:: spectral_filter

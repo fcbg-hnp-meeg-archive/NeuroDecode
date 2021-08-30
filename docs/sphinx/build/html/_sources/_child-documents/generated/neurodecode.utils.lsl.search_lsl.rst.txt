@@ -1,4 +1,4 @@
-neurodecode.utils.lsl.search\_lsl
+﻿neurodecode.utils.lsl.search\_lsl
 =================================
 
 .. currentmodule:: neurodecode.utils.lsl

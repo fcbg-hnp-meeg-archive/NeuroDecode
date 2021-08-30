@@ -1,4 +1,4 @@
-neurodecode.decoder.log\_decoding
+﻿neurodecode.decoder.log\_decoding
 =================================
 
 .. currentmodule:: neurodecode.decoder

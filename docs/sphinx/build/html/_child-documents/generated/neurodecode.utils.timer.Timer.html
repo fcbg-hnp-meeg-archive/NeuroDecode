@@ -1,41 +1,47 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>neurodecode.utils.timer.Timer &mdash; NeuroDecode 0.5.dev0 documentation</title>
+  <title>neurodecode.utils.timer.Timer &mdash; NeuroDecode 0.5.3 documentation</title>
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
 
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="neurodecode.utils.preprocess.find_event_channel" href="neurodecode.utils.preprocess.find_event_channel.html" /> 
+    <link rel="prev" title="neurodecode.utils.preprocess.dir_set_montage" href="neurodecode.utils.preprocess.dir_set_montage.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -59,7 +65,7 @@
             
             
               <div class="version">
-                0.5.dev0
+                0.5.3
               </div>
             
           
@@ -76,6 +82,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -86,7 +93,7 @@
               <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/fcbg-hnp/NeuroDecode/">GitHub</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Getting Started</span></p>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html"> Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../installation.html#dependencies">Dependencies</a></li>
@@ -111,7 +118,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../user-guide.html">User Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../user-guide.html#streamreceiver">StreamReceiver</a></li>
@@ -163,8 +170,6 @@
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api.html#utils-neurodecode-utils">Utils <code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils</span></code></a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.benchmark"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.benchmark</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.debug"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.debug</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.etc"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.etc</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.io"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.io</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.layouts"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.layouts</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.lsl"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.lsl</span></code></a></li>
@@ -180,6 +185,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -214,11 +220,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../api.html">API Documentation</a> &raquo;</li>
         
@@ -227,7 +235,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/_child-documents/generated/neurodecode.utils.timer.Timer.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -244,15 +252,14 @@
   <div class="section" id="neurodecode-utils-timer-timer">
 <h1>neurodecode.utils.timer.Timer<a class="headerlink" href="#neurodecode-utils-timer-timer" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt id="neurodecode.utils.timer.Timer">
-<em class="property">class </em><code class="sig-prename descclassname">neurodecode.utils.timer.</code><code class="sig-name descname">Timer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">autoreset</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.utils.timer.Timer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Timer class</p>
+<dt class="sig sig-object py" id="neurodecode.utils.timer.Timer">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">neurodecode.utils.timer.</span></span><span class="sig-name descname"><span class="pre">Timer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">autoreset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.utils.timer.Timer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timer class.</p>
 <p>if autoreset=True, timer is reset after any member function call</p>
 <dl class="py method">
-<dt id="neurodecode.utils.timer.Timer.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">autoreset</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.utils.timer.Timer.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</dd></dl>
+<dt class="sig sig-object py" id="neurodecode.utils.timer.Timer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">autoreset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.utils.timer.Timer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
@@ -262,26 +269,26 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#neurodecode.utils.timer.Timer.__init__" title="neurodecode.utils.timer.Timer.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([autoreset])</p></td>
-<td><p>Initialize self.</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#neurodecode.utils.timer.Timer.msec" title="neurodecode.utils.timer.Timer.msec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">msec</span></code></a>()</p></td>
-<td><p>Provide the time since reset in milliseconds</p></td>
+<td><p>Provide the time since reset in milliseconds.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#neurodecode.utils.timer.Timer.reset" title="neurodecode.utils.timer.Timer.reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code></a>()</p></td>
 <td><p>Reset the timer to zero.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#neurodecode.utils.timer.Timer.sec" title="neurodecode.utils.timer.Timer.sec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sec</span></code></a>()</p></td>
-<td><p>Provide the time since reset in seconds</p></td>
+<td><p>Provide the time since reset in seconds.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#neurodecode.utils.timer.Timer.sleep_atleast" title="neurodecode.utils.timer.Timer.sleep_atleast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sleep_atleast</span></code></a>(sec)</p></td>
-<td><p>Sleep up to sec seconds</p></td>
+<td><p>Sleep up to sec seconds.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
-<dt id="neurodecode.utils.timer.Timer.msec">
-<code class="sig-name descname">msec</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.utils.timer.Timer.msec" title="Permalink to this definition">¶</a></dt>
-<dd><p>Provide the time since reset in milliseconds</p>
+<dt class="sig sig-object py" id="neurodecode.utils.timer.Timer.msec">
+<span class="sig-name descname"><span class="pre">msec</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.utils.timer.Timer.msec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide the time since reset in milliseconds.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><strong>float</strong></p>
@@ -293,21 +300,21 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="neurodecode.utils.timer.Timer.reset">
-<code class="sig-name descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.utils.timer.Timer.reset" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="neurodecode.utils.timer.Timer.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.utils.timer.Timer.reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset the timer to zero.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="neurodecode.utils.timer.Timer.sec">
-<code class="sig-name descname">sec</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.utils.timer.Timer.sec" title="Permalink to this definition">¶</a></dt>
-<dd><p>Provide the time since reset in seconds</p>
+<dt class="sig sig-object py" id="neurodecode.utils.timer.Timer.sec">
+<span class="sig-name descname"><span class="pre">sec</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.utils.timer.Timer.sec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide the time since reset in seconds.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="neurodecode.utils.timer.Timer.sleep_atleast">
-<code class="sig-name descname">sleep_atleast</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sec</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.utils.timer.Timer.sleep_atleast" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sleep up to sec seconds</p>
+<dt class="sig sig-object py" id="neurodecode.utils.timer.Timer.sleep_atleast">
+<span class="sig-name descname"><span class="pre">sleep_atleast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.utils.timer.Timer.sleep_atleast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sleep up to sec seconds.</p>
 <p>It’s more convenient if autoreset=True</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -325,14 +332,9 @@
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-      
-        <a href="neurodecode.utils.preprocess.find_event_channel.html" class="btn btn-neutral float-left" title="neurodecode.utils.preprocess.find_event_channel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="neurodecode.utils.preprocess.dir_set_montage.html" class="btn btn-neutral float-left" title="neurodecode.utils.preprocess.dir_set_montage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
@@ -343,7 +345,6 @@
   </div> 
 
 </footer>
-
         </div>
       </div>
 
@@ -351,7 +352,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

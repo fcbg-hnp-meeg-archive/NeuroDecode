@@ -1,4 +1,4 @@
-neurodecode.stream\_recorder.StreamRecorder
+﻿neurodecode.stream\_recorder.StreamRecorder
 ===========================================
 
 .. currentmodule:: neurodecode.stream_recorder
@@ -26,9 +26,9 @@ neurodecode.stream\_recorder.StreamRecorder
 
    .. autosummary::
    
-      ~StreamRecorder.amp_name
       ~StreamRecorder.process
       ~StreamRecorder.record_dir
       ~StreamRecorder.state
+      ~StreamRecorder.stream_name
    
    

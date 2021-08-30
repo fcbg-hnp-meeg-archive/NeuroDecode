@@ -1,42 +1,48 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>neurodecode.utils.io.load_config &mdash; NeuroDecode 0.5.dev0 documentation</title>
+  <title>neurodecode.utils.io.load_config &mdash; NeuroDecode 0.5.3 documentation</title>
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
 
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="neurodecode.utils.io.get_file_list" href="neurodecode.utils.io.get_file_list.html" />
-    <link rel="prev" title="neurodecode.utils.io.load_mat" href="neurodecode.utils.io.load_mat.html" /> 
+    <link rel="prev" title="neurodecode.utils.io.read_raw_fif_multi" href="neurodecode.utils.io.read_raw_fif_multi.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -60,7 +66,7 @@
             
             
               <div class="version">
-                0.5.dev0
+                0.5.3
               </div>
             
           
@@ -77,6 +83,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -87,7 +94,7 @@
               <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/fcbg-hnp/NeuroDecode/">GitHub</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Getting Started</span></p>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html"> Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../installation.html#dependencies">Dependencies</a></li>
@@ -112,7 +119,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../user-guide.html">User Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../user-guide.html#streamreceiver">StreamReceiver</a></li>
@@ -164,8 +171,6 @@
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api.html#utils-neurodecode-utils">Utils <code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils</span></code></a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.benchmark"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.benchmark</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.debug"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.debug</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.etc"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.etc</span></code></a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../api.html#module-neurodecode.utils.io"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.io</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.layouts"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.layouts</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api.html#module-neurodecode.utils.lsl"><code class="xref py py-mod docutils literal notranslate"><span class="pre">neurodecode.utils.lsl</span></code></a></li>
@@ -181,6 +186,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -215,11 +221,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../api.html">API Documentation</a> &raquo;</li>
         
@@ -228,7 +236,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/_child-documents/generated/neurodecode.utils.io.load_config.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -245,12 +253,12 @@
   <div class="section" id="neurodecode-utils-io-load-config">
 <h1>neurodecode.utils.io.load_config<a class="headerlink" href="#neurodecode-utils-io-load-config" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="neurodecode.utils.io.load_config">
-<code class="sig-prename descclassname">neurodecode.utils.io.</code><code class="sig-name descname">load_config</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cfg_module</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.utils.io.load_config" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="neurodecode.utils.io.load_config">
+<span class="sig-prename descclassname"><span class="pre">neurodecode.utils.io.</span></span><span class="sig-name descname"><span class="pre">load_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#neurodecode.utils.io.load_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dynamic loading of a config file module.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cfg_module</strong> (<em>str</em>) – The absolute path to the config file to load</p>
+<dd class="field-odd"><p><strong>cfg_module</strong> (<em>str</em>) – The absolute path to the config file to load.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -262,16 +270,10 @@
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="neurodecode.utils.io.get_file_list.html" class="btn btn-neutral float-right" title="neurodecode.utils.io.get_file_list" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="neurodecode.utils.io.load_mat.html" class="btn btn-neutral float-left" title="neurodecode.utils.io.load_mat" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="neurodecode.utils.io.get_file_list.html" class="btn btn-neutral float-right" title="neurodecode.utils.io.get_file_list" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="neurodecode.utils.io.read_raw_fif_multi.html" class="btn btn-neutral float-left" title="neurodecode.utils.io.read_raw_fif_multi" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
@@ -282,7 +284,6 @@
   </div> 
 
 </footer>
-
         </div>
       </div>
 
@@ -290,7 +291,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

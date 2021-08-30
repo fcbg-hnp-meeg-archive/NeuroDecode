@@ -1,4 +1,4 @@
-neurodecode.utils.math.dirichlet
+﻿neurodecode.utils.math.dirichlet
 ================================
 
 .. currentmodule:: neurodecode.utils.math

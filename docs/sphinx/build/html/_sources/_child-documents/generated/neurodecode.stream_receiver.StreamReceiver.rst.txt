@@ -1,4 +1,4 @@
-neurodecode.stream\_receiver.StreamReceiver
+﻿neurodecode.stream\_receiver.StreamReceiver
 ===========================================
 
 .. currentmodule:: neurodecode.stream_receiver
@@ -16,6 +16,7 @@ neurodecode.stream\_receiver.StreamReceiver
       ~StreamReceiver.__init__
       ~StreamReceiver.acquire
       ~StreamReceiver.connect
+      ~StreamReceiver.disconnect_stream
       ~StreamReceiver.get_buffer
       ~StreamReceiver.get_window
       ~StreamReceiver.reset_all_buffers

@@ -1,0 +1,6 @@
+﻿neurodecode.utils.preprocess.dir\_rename\_channels
+==================================================
+
+.. currentmodule:: neurodecode.utils.preprocess
+
+.. autofunction:: dir_rename_channels

@@ -1,0 +1,30 @@
+﻿neurodecode.utils.layouts.Layout
+================================
+
+.. currentmodule:: neurodecode.utils.layouts
+
+.. autoclass:: Layout
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Layout.__init__
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Layout.ch_names
+      ~Layout.ch_types
+      ~Layout.name
+   
+   

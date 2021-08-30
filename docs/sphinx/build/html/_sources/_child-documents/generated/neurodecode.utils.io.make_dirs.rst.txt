@@ -1,4 +1,4 @@
-neurodecode.utils.io.make\_dirs
+﻿neurodecode.utils.io.make\_dirs
 ===============================
 
 .. currentmodule:: neurodecode.utils.io
