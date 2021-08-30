@@ -1,0 +1,12 @@
+mne
+numpy
+pylsl
+pyqtgraph
+PyQt5
+scipy
+shutil
+matplotlib
+psutil
+sounddevice
+opencv-python
+pyserial
