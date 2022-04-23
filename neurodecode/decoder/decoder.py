@@ -690,6 +690,16 @@ class BCIDecoderDaemon(object):
             return None
 
     #----------------------------------------------------------------------
+    def reset_prob_smooth(self):
+        """
+        Reset the interal smoothed probabilities to uniform
+        """
+        self.pread.value = 0
+        default_prob = 1.0 / len(self.labels)
+        for i in range(len(self.probs_smooth)):
+            self.probs_smooth[i] = default_prob
+
+    #----------------------------------------------------------------------
     def get_psd(self):
         """
         Return the latest computed PSD

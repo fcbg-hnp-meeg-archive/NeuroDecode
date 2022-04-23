@@ -220,6 +220,7 @@ class Feedback:
 
                 self.tm_watchdog.reset()
                 self.tm_trigger.reset()
+                decoder.reset_prob_smooth()
 
                 # For adaptive
                 if adaptive:
